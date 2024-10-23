@@ -1,50 +1,24 @@
-# React + TypeScript + Vite
+# react 19
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## react 19 컴파일 테스트
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
+#### babel 컴파일 플러그인 없는 경우.
 
 ```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
+export default defineConfig({
+  plugins: [react({})],
 })
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+![alt text](/images/1.png)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- 최적화 미 반영, (`memo`, `useCallback`, `useMemo`)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+#### babel 컴파일 플러그인 없는 경우.
+
+![alt text](/images/2.png)
+
+- memo가 자동적으로 감싸져있음.
+- 그리고 react devtool의 component에서 compiler가 자동으로 최적화했다는 문구를 확인할 수 있음.
+
+> react devtool performance는 아직 19버전 미지원
