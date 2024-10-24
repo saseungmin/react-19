@@ -38,8 +38,8 @@ export default defineConfig({
 - memo가 자동적으로 감싸져있음.
 - 그리고 react devtool의 component에서 compiler가 자동으로 최적화했다는 문구를 확인할 수 있음.
 
-![alt text](image.png)
+![alt text](/images/3.png)
 
-- build된 결과물을 보면 하단에 `react-compiler-runtime.production.js` 부분에 compiler를 통해서 최적화가 된 코드를 확인해볼 수 있다.
+- dist의 build된 결과물을 보면 하단에 `react-compiler-runtime.production.js` 부분에 compiler를 통해서 최적화가 된 코드를 확인해볼 수 있다.
 
 > react devtool performance는 아직 19버전 미지원
